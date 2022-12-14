@@ -41,6 +41,11 @@ app.get('/order', async (_req, res) => {
     }
 });
 
+app.get('/download', function(req, res){
+  const file = `https://ajoubertdaprstorage.blob.core.windows.net/mycontainer/java.DMP.zip`;
+  res.download(file); // Set disposition and send it.
+});
+
 app.post('/neworder', async (req, res) => {
     const data = req.body.data;
     const orderId = data.orderId;
